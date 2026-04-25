@@ -7,7 +7,9 @@
 This repository contains a **Bakery Website** developed during **ITI .NET training**.
 The project represents a bakery business and focuses on creating a clean, responsive, and user-friendly website to showcase bakery products and services.
 ![image alt](https://github.com/menna2150/Bakery-website/blob/51c2008cbc0c3422cdb6fb5c4e83d65a3a90de84/Screenshot%202026-04-25%20185608.png)
-
+![image alt](https://github.com/menna2150/Bakery-website/blob/a10f4f9c2f533f0a7d9f4693b146d838d5e9ef37/Screenshot%202026-04-25%20185622.png)
+![image alt](https://github.com/menna2150/Bakery-website/blob/a10f4f9c2f533f0a7d9f4693b146d838d5e9ef37/Screenshot%202026-04-25%20185730.png)
+![image alt](https://github.com/menna2150/Bakery-website/blob/a10f4f9c2f533f0a7d9f4693b146d838d5e9ef37/Screenshot%202026-04-25%20185839.png)
 ## ✨ Features
 
 * Responsive design
