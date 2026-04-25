@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manon Bakery — The Art of Bread</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-name">Manon</span>
+                <span class="logo-tagline">BAKERY</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#home" class="active">HOME</a>
+                <a href="#shop">SHOP</a>
+                <a href="#menu">MENU</a>
+                <a href="#story">OUR STORY</a>
+                <a href="#careers" data-action="careers">CAREERS</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="icon-btn cart-btn" aria-label="Cart" data-action="open-cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+                <button class="icon-btn" aria-label="Account" data-action="open-account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </button>
+                <button class="icon-btn" aria-label="Wishlist" data-action="open-wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    <span class="cart-badge wishlist-badge" id="wishlist-badge">0</span>
+                </button>
+                <button class="icon-btn" aria-label="Search" data-action="open-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </button>
+            </div>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <img src="images/hero1.jpg" alt="" class="hero-img hero-img-left">
+        <img src="images/hero2.jpg" alt="" class="hero-img hero-img-right">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">THE ART OF BREAD.<br>CRAFTED BY HAND. BAKED DAILY.</h1>
+            <p class="hero-sub">Order Fresh Daily &nbsp;|&nbsp; Pick Up in Store &nbsp;|&nbsp; Nationwide Shipping</p>
+            <a href="#shop" class="btn btn-primary">SHOP NOW</a>
+        </div>
+    </section>
+
+    <!-- Weekly Specials -->
+    <section class="specials" id="shop">
+        <div class="container">
+            <div class="specials-head">
+                <div class="specials-title-wrap">
+                    <h2 class="section-title">WEEKLY SPECIALS</h2>
+                </div>
+                <button class="filter-btn" data-action="toggle-filters">
+                    Filters
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                </button>
+            </div>
+
+            <!-- Filter Panel -->
+            <div class="filter-panel" id="filter-panel">
+                <div class="filter-row">
+                    <label class="filter-group">
+                        <span>Sort by</span>
+                        <select id="sort-by">
+                            <option value="default">Featured</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="name">Name (A–Z)</option>
+                        </select>
+                    </label>
+                    <label class="filter-group">
+                        <span>Category</span>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="bread">Bread</option>
+                            <option value="pastry">Pastry</option>
+                            <option value="croissant">Croissant</option>
+                        </select>
+                    </label>
+                    <label class="filter-group filter-range">
+                        <span>Max Price: <strong id="price-display">200 EGP</strong></span>
+                        <input type="range" id="price-range" min="20" max="200" value="200" step="5">
+                    </label>
+                    <button class="btn-clear" data-action="clear-filters">Clear</button>
+                </div>
+            </div>
+
+            <div class="product-grid" id="product-grid">
+                <article class="product" data-id="p1" data-name="Manon Croissant" data-price="35" data-cat="croissant">
+                    <div class="product-img">
+                        <img src="images/p1.jpg" alt="Manon Croissant">
+                        <button class="fav-btn" data-action="toggle-fav" aria-label="Add to favorites">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Manon Croissant</h3>
+                        <p class="price">35.00 EGP</p>
+                        <div class="rating">★★★★★</div>
+                        <button class="add-btn" data-action="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-id="p2" data-name="Artisan Crossa" data-price="45" data-cat="bread">
+                    <div class="product-img">
+                        <img src="images/p2.jpg" alt="Artisan Crossa">
+                        <button class="fav-btn" data-action="toggle-fav" aria-label="Add to favorites">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Artisan Crossa</h3>
+                        <p class="price">45.00 EGP</p>
+                        <div class="rating">★★★★★</div>
+                        <button class="add-btn" data-action="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-id="p3" data-name="Seeded Sourdough" data-price="120" data-cat="bread">
+                    <div class="product-img">
+                        <img src="images/p3.jpg" alt="Seeded Sourdough">
+                        <button class="fav-btn" data-action="toggle-fav" aria-label="Add to favorites">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Seeded Sourdough</h3>
+                        <p class="price">120.00 EGP</p>
+                        <div class="rating">★★★★★</div>
+                        <button class="add-btn" data-action="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-id="p4" data-name="Sorisor Bread" data-price="80" data-cat="bread">
+                    <div class="product-img">
+                        <img src="images/p4.jpg" alt="Sorisor Bread">
+                        <button class="fav-btn" data-action="toggle-fav" aria-label="Add to favorites">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sorisor Bread</h3>
+                        <p class="price">80.00 EGP</p>
+                        <div class="rating">★★★★★</div>
+                        <button class="add-btn" data-action="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-id="p5" data-name="Manon Pastries" data-price="25" data-cat="pastry">
+                    <div class="product-img">
+                        <img src="images/p5.jpg" alt="Manon Pastries">
+                        <button class="fav-btn" data-action="toggle-fav" aria-label="Add to favorites">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Manon Pastries</h3>
+                        <p class="price">25.00 EGP</p>
+                        <div class="rating">★★★★★</div>
+                        <button class="add-btn" data-action="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-id="p6" data-name="Pain au Chocolat" data-price="40" data-cat="pastry">
+                    <div class="product-img">
+                        <img src="images/p6.jpg" alt="Pain au Chocolat">
+                        <button class="fav-btn" data-action="toggle-fav" aria-label="Add to favorites">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pain au Chocolat</h3>
+                        <p class="price">40.00 EGP</p>
+                        <div class="rating">★★★★★</div>
+                        <button class="add-btn" data-action="add-to-cart">Add to Cart</button>
+                    </div>
+                </article>
+            </div>
+            <div class="empty-state" id="empty-state" hidden>
+                <p>No products match your filters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Our Menu -->
+    <section class="explore" id="menu">
+        <div class="container">
+            <h2 class="section-title">EXPLORE OUR MENU</h2>
+            <div class="explore-wrap">
+                <div class="explore-grid" id="explore-grid">
+                    <a href="#shop" class="category" data-cat="croissant">
+                        <div class="cat-img"><img src="images/cat1.jpg" alt="Croissants"></div>
+                        <h4>Croissants</h4>
+                    </a>
+                    <a href="#shop" class="category" data-cat="cake">
+                        <div class="cat-img"><img src="images/cat2.jpg" alt="Cakes"></div>
+                        <h4>Cakes</h4>
+                    </a>
+                    <a href="#shop" class="category" data-cat="bread">
+                        <div class="cat-img"><img src="images/cat3.jpg" alt="Sourdough"></div>
+                        <h4>Sourdough</h4>
+                    </a>
+                    <a href="#shop" class="category" data-cat="pastry">
+                        <div class="cat-img"><img src="images/cat4.jpg" alt="Pastries"></div>
+                        <h4>Pastries</h4>
+                    </a>
+                    <a href="#shop" class="category" data-cat="coffee">
+                        <div class="cat-img"><img src="images/cat5.jpg" alt="Coffee"></div>
+                        <h4>Coffee</h4>
+                    </a>
+                    <a href="#shop" class="category" data-cat="bagel">
+                        <div class="cat-img"><img src="images/cat6.jpg" alt="Bagels"></div>
+                        <h4>Bagels</h4>
+                    </a>
+                </div>
+                <button class="explore-arrow" aria-label="Next" data-action="scroll-explore">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story" id="story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-visual">
+                    <div class="story-img-main">
+                        <img src="images/story.jpg" alt="Artisan bakery">
+                    </div>
+                    <div class="story-badge">
+                        <span class="badge-year">EST.</span>
+                        <span class="badge-num">2025</span>
+                    </div>
+                </div>
+                <div class="story-text">
+                    <span class="eyebrow">OUR STORY</span>
+                    <h2 class="section-title">Baked with Heart,<br>Served with Love.</h2>
+                    <p>
+                        Manon Bakery began in a small corner shop where the scent of morning bread filled the entire street. Three generations later, we still knead by hand, proof slowly, and bake in wood-fired ovens every single day.
+                    </p>
+                    <p>
+                        Every loaf carries the patience of time and the craft of tradition — because good bread cannot be rushed.
+                    </p>
+                    <a href="#" class="btn btn-outline">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="contact">
+        <div class="container">
+            <div class="newsletter-inner">
+                <h2>Join our inner circle.</h2>
+                <p>Receive weekly specials, new releases, and a warm 10% welcome offer.</p>
+                <form class="subscribe-form" id="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo logo-light">
+                        <span class="logo-name">Manon</span>
+                        <span class="logo-tagline">BAKERY</span>
+                    </a>
+                    <p>Handcrafted bread & pastries. Baked fresh daily since 2025.</p>
+                    <div class="socials">
+                        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="https://pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M9 12c0-3 2-6 5-6"/></svg>
+                        </a>
+                        <a href="https://wa.me/20122879674891" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <a href="#shop">Bread</a>
+                    <a href="#shop">Pastries</a>
+                    <a href="#shop">Cakes</a>
+                    <a href="#shop">Coffee</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#story">Our Story</a>
+                    <a href="#" data-action="careers">Careers</a>
+                    <a href="#">Press</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Visit Us</h4>
+                    <p>42 Talaat Harb Street<br>Downtown Cairo, Egypt</p>
+                    <p>Daily 6 AM – 8 PM</p>
+                    <p>0122 879 67489</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Manon Bakery. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== CART DRAWER ===== -->
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+        <div class="drawer-head">
+            <h3>Your Cart <span id="cart-count">(0)</span></h3>
+            <button class="close-btn" data-action="close-cart" aria-label="Close cart">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="cart-body" id="cart-body">
+            <div class="cart-empty" id="cart-empty">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                <h4>Your cart is empty</h4>
+                <p>Add some delicious bakes to get started.</p>
+                <button class="btn btn-primary" data-action="close-cart">Continue Shopping</button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+        </div>
+        <div class="cart-foot" id="cart-foot">
+            <div class="cart-row"><span>Subtotal</span><span id="cart-subtotal">0.00 EGP</span></div>
+            <div class="cart-row"><span>Shipping</span><span id="cart-shipping">35.00 EGP</span></div>
+            <div class="cart-row cart-total"><span>Total</span><span id="cart-total">0.00 EGP</span></div>
+            <button class="btn btn-primary checkout-btn" data-action="checkout">Checkout</button>
+        </div>
+    </aside>
+
+    <!-- ===== SEARCH MODAL ===== -->
+    <div class="modal" id="search-modal" aria-hidden="true">
+        <div class="search-box">
+            <div class="search-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="search-input" placeholder="Search bread, pastries, cakes...">
+                <button class="close-btn" data-action="close-search" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="search-results" id="search-results">
+                <p class="search-hint">Start typing to find your favorite bake</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ACCOUNT MODAL ===== -->
+    <div class="modal" id="account-modal" aria-hidden="true">
+        <div class="account-box">
+            <button class="close-btn close-abs" data-action="close-account" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <!-- Logged out view -->
+            <div id="auth-view">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="register">Sign Up</button>
+                </div>
+                <form class="auth-form" id="login-form">
+                    <h3>Welcome Back</h3>
+                    <p class="auth-sub">Sign in to track your orders and saved items.</p>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
+                <form class="auth-form" id="register-form" hidden>
+                    <h3>Create an Account</h3>
+                    <p class="auth-sub">Join the Manon family — get a 10% welcome offer.</p>
+                    <input type="text" id="reg-name" placeholder="Full Name" required>
+                    <input type="email" id="reg-email" placeholder="Email" required>
+                    <input type="password" id="reg-password" placeholder="Password (min 6 chars)" required minlength="6">
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+            </div>
+
+            <!-- Logged in view -->
+            <div id="account-view" hidden>
+                <div class="account-header">
+                    <div class="avatar" id="account-avatar">M</div>
+                    <h3 id="account-name">Welcome</h3>
+                    <p id="account-email"></p>
+                </div>
+                <div class="account-stats">
+                    <div class="stat-block">
+                        <span class="stat-num" id="orders-count">0</span>
+                        <span class="stat-label">Orders</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-num" id="fav-count">0</span>
+                        <span class="stat-label">Favorites</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-num" id="spent-amount">0</span>
+                        <span class="stat-label">EGP Spent</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline btn-block" data-action="logout">Sign Out</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== WISHLIST MODAL ===== -->
+    <div class="modal" id="wishlist-modal" aria-hidden="true">
+        <div class="wishlist-box">
+            <div class="wishlist-head">
+                <h3>Your Favorites</h3>
+                <button class="close-btn" data-action="close-wishlist" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="wishlist-body" id="wishlist-body"></div>
+        </div>
+    </div>
+
+    <!-- ===== CHECKOUT MODAL ===== -->
+    <div class="modal" id="checkout-modal" aria-hidden="true">
+        <div class="checkout-box">
+            <button class="close-btn close-abs" data-action="close-checkout" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div id="checkout-step-1">
+                <h3>Checkout</h3>
+                <p class="auth-sub">Confirm your delivery details below.</p>
+                <form id="checkout-form">
+                    <input type="text" id="ck-name" placeholder="Full Name" required>
+                    <input type="tel" id="ck-phone" placeholder="Phone (e.g. 01012345678)" required pattern="[0-9]{10,11}">
+                    <input type="text" id="ck-address" placeholder="Delivery Address" required>
+                    <input type="text" id="ck-city" placeholder="City (e.g. Cairo, Giza)" required>
+                    <select id="ck-payment" required>
+                        <option value="">Payment Method</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="instapay">InstaPay / Wallet</option>
+                    </select>
+                    <div class="checkout-summary">
+                        <div class="cart-row"><span>Items</span><span id="ck-items">0</span></div>
+                        <div class="cart-row"><span>Subtotal</span><span id="ck-subtotal">0.00 EGP</span></div>
+                        <div class="cart-row"><span>Shipping</span><span>35.00 EGP</span></div>
+                        <div class="cart-row cart-total"><span>Total</span><span id="ck-total">0.00 EGP</span></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+                </form>
+            </div>
+            <div id="checkout-step-2" hidden>
+                <div class="success-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>Order Confirmed!</h3>
+                <p class="order-num">Order #<span id="order-id"></span></p>
+                <p class="auth-sub">Thank you for your order. We'll deliver fresh from our oven within 90 minutes.</p>
+                <button class="btn btn-primary btn-block" data-action="close-checkout">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TOAST CONTAINER ===== -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
