@@ -24,8 +24,7 @@ The project represents a bakery business and focuses on creating a clean, respon
 * HTML
 * CSS
 * JavaScript
-* (.NET – if used for hosting or backend)
-
+* .NET 
 ## 🎯 Project Objective
 
 The main objective of this project is to apply web development fundamentals learned during training and to practice building a real-world business website. The project emphasizes layout design, usability, and organized content presentation.
